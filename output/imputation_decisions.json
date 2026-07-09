@@ -1,0 +1,49 @@
+[
+    {
+        "column": "customer_id",
+        "strategy": "Drop Rows",
+        "reason": "Primary key cannot be missing",
+        "affected_rows": 0
+    },
+    {
+        "column": "amount",
+        "strategy": "Median",
+        "value_used": 200.0,
+        "reason": "Median is robust to outliers"
+    },
+    {
+        "column": "quantity",
+        "strategy": "Median",
+        "value_used": 5.0,
+        "reason": "Median is robust to outliers"
+    },
+    {
+        "column": "name",
+        "strategy": "Mode",
+        "value_used": "Alice",
+        "reason": "Most frequent value preserves distribution"
+    },
+    {
+        "column": "email",
+        "strategy": "Mode",
+        "value_used": "alice@example.com",
+        "reason": "Most frequent value preserves distribution"
+    },
+    {
+        "column": "category",
+        "strategy": "Mode",
+        "value_used": "A",
+        "reason": "Most frequent value preserves distribution"
+    },
+    {
+        "column": "region",
+        "strategy": "Mode",
+        "value_used": "East",
+        "reason": "Most frequent value preserves distribution"
+    },
+    {
+        "column": "last_updated",
+        "strategy": "Forward Fill",
+        "reason": "Maintains chronological consistency"
+    }
+]
