@@ -1,0 +1,6 @@
+column_name,data_type,description,business_meaning,example_value,related_kpi,notes
+customer_id,Integer,Unique customer identifier,Customer ID used in CRM,1001,Customer Tracking,Primary key and never null
+name,String,Customer full name,Identifies customer,Alice,Customer Records,Can contain duplicate names
+email,String,Customer email address,Used for communication,alice@example.com,Customer Engagement,Should be unique
+amount,Float,Transaction amount,Revenue earned from customer,150.75,Monthly Revenue,Negative values should be investigated
+status,String,Transaction status,Current transaction state,Completed,Transaction Success,Expected values: Completed or Pending
