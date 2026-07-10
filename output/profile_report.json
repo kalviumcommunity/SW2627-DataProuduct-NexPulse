@@ -1,0 +1,83 @@
+{
+    "records": 5,
+    "columns": 5,
+    "nulls_duplicates": {
+        "null_counts": {
+            "customer_id": 0,
+            "name": 1,
+            "email": 2,
+            "amount": 0,
+            "status": 1
+        },
+        "null_percentages": {
+            "customer_id": 0.0,
+            "name": 20.0,
+            "email": 40.0,
+            "amount": 0.0,
+            "status": 20.0
+        },
+        "exact_duplicate_count": 0,
+        "duplicate_percentage": 0.0
+    },
+    "numerical_statistics": {
+        "customer_id": {
+            "min": 1.0,
+            "max": 5.0,
+            "mean": 3.0,
+            "median": 3.0,
+            "std": 1.58,
+            "null_count": 0
+        },
+        "amount": {
+            "min": -50.0,
+            "max": 500.0,
+            "mean": 180.0,
+            "median": 100.0,
+            "std": 207.97,
+            "null_count": 0
+        }
+    },
+    "categorical_statistics": {
+        "name": {
+            "unique_count": 3,
+            "top_values": {
+                "Alice": 2,
+                "Bob": 1,
+                "Diana": 1
+            },
+            "null_count": 1
+        },
+        "email": {
+            "unique_count": 2,
+            "top_values": {
+                "alice@example.com": 2,
+                "charlie@example.com": 1
+            },
+            "null_count": 2
+        },
+        "status": {
+            "unique_count": 2,
+            "top_values": {
+                "active": 3,
+                "inactive": 1
+            },
+            "null_count": 1
+        }
+    },
+    "quality_issues": [
+        {
+            "type": "High Nulls",
+            "column": "email",
+            "severity": "HIGH",
+            "value": "40.0%",
+            "recommendation": "Consider imputation or dropping the column"
+        },
+        {
+            "type": "Negative Amount",
+            "column": "amount",
+            "severity": "HIGH",
+            "value": "Negative values found",
+            "recommendation": "Investigate invalid monetary values"
+        }
+    ]
+}
