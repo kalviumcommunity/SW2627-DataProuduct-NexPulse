@@ -37,6 +37,24 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+### 4. Run the deduplication workflow
+
+Use the built-in demo dataset:
+
+```bash
+python scripts/data_workflow.py --demo
+```
+
+Or run it against a real CSV file:
+
+```bash
+python scripts/data_workflow.py --input data/raw/missing_data.csv --output output/processed.csv
+```
+
+The workflow prints before/after dtype changes, deduplication counts, and writes audit files to `output/`.
+
+It also normalizes text columns by trimming whitespace, standardizing case, removing special characters where needed, and mapping category variants to a canonical label.
+
 ---
 
 ## Project Structure
@@ -61,3 +79,5 @@ output/            → Reports, charts and exports
 - Do not commit the `.env` file.
 - Copy `.env.example` to `.env` and update it with your own values.
 - Install all required packages using `requirements.txt`.
+- The data workflow supports both the built-in demo dataset and CSV input via CLI arguments.
+- The workflow also applies reusable string-cleaning rules before type enforcement and deduplication.

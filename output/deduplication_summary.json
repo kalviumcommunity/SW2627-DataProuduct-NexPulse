@@ -1,0 +1,12 @@
+{
+    "rows_before": 5,
+    "exact_duplicates_found": 0,
+    "near_duplicates_found": 2,
+    "rows_after": 3,
+    "rows_removed": 2,
+    "removal_pct": 40.0,
+    "key_columns": [
+        "customer_id",
+        "transaction_date"
+    ]
+}
