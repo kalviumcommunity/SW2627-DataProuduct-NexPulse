@@ -53,6 +53,8 @@ python scripts/data_workflow.py --input data/raw/missing_data.csv --output outpu
 
 The workflow prints before/after dtype changes, deduplication counts, and writes audit files to `output/`.
 
+It also normalizes text columns by trimming whitespace, standardizing case, removing special characters where needed, and mapping category variants to a canonical label.
+
 ---
 
 ## Project Structure
@@ -78,3 +80,4 @@ output/            → Reports, charts and exports
 - Copy `.env.example` to `.env` and update it with your own values.
 - Install all required packages using `requirements.txt`.
 - The data workflow supports both the built-in demo dataset and CSV input via CLI arguments.
+- The workflow also applies reusable string-cleaning rules before type enforcement and deduplication.

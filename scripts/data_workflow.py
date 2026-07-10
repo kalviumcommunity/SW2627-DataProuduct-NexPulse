@@ -6,6 +6,41 @@ import pandas as pd
 
 
 RAW_DATE_FORMAT = "%Y-%m-%d"
+TEXT_CLEANING_RULES = {
+    "customer_name": {"lowercase": True, "strip": True},
+    "city": {"lowercase": True, "strip": True, "remove_special": True},
+    "product_category": {
+        "lowercase": True,
+        "strip": True,
+        "remove_special": True,
+        "mapping": {
+            "electronics": "electronics",
+            "electro nics": "electronics",
+            "home garden": "home garden",
+            "home and garden": "home garden",
+        },
+    },
+    "segment": {
+        "lowercase": True,
+        "strip": True,
+        "remove_special": True,
+        "mapping": {
+            "b2b": "b2b",
+            "b 2 b": "b2b",
+            "business to business": "b2b",
+            "businesstobusiness": "b2b",
+            "retail": "retail",
+        },
+    },
+    "status": {
+        "lowercase": True,
+        "strip": True,
+    },
+    "source": {
+        "lowercase": True,
+        "strip": True,
+    },
+}
 
 
 def _coerce_currency(series):
@@ -24,11 +59,41 @@ def _coerce_boolean(series):
     return numeric.astype("boolean")
 
 
+def clean_text_column(series, lowercase=True, strip=True, remove_special=False, mapping=None):
+    """Apply reusable text normalisation steps to a single column."""
+    result = series.astype("string")
+
+    if strip:
+        result = result.str.strip()
+
+    if lowercase:
+        result = result.str.lower()
+
+    if remove_special:
+        result = result.str.replace(r"[^a-zA-Z0-9 ]", "", regex=True)
+
+    if mapping:
+        mapped = result.map(mapping)
+        result = mapped.fillna(result)
+
+    return result
+
+
 def build_demo_data():
-    """Create a small dataset that contains type mismatches and duplicates."""
+    """Create a small dataset that contains type, text, and duplicate issues."""
     return pd.DataFrame(
         {
             "customer_id": [1, 1, 2, 2, 3],
+            "customer_name": [" John ", "john", "Ana-Maria", "ana maria", "Marta  "],
+            "city": [" São Paulo ", "Sao Paulo", "Montréal", "MONTREAL!", " Lisbon"],
+            "product_category": [
+                " Electronics ",
+                "electronics",
+                "ELECTRONICS",
+                "Electro nics",
+                "Home & Garden",
+            ],
+            "segment": ["B2B", "b 2 b", "business-to-business", "Retail ", " retail"],
             "transaction_date": [
                 "2025-01-15",
                 "2025-01-15",
@@ -163,6 +228,44 @@ def deduplicate_records(df, key_columns):
     return deduplicated.reset_index(drop=True), removed_records.reset_index(drop=True), summary, audit_log
 
 
+def normalize_text_columns(df):
+    """Clean any configured text columns that exist in the dataset."""
+    cleaned = df.copy()
+    summary = []
+
+    for column, rule in TEXT_CLEANING_RULES.items():
+        if column not in cleaned.columns:
+            continue
+
+        before_non_null = cleaned[column].dropna()
+        before_unique = int(before_non_null.nunique())
+        before_sample = [str(value) for value in before_non_null.head(3).tolist()]
+
+        cleaned[column] = clean_text_column(
+            cleaned[column],
+            lowercase=rule.get("lowercase", True),
+            strip=rule.get("strip", True),
+            remove_special=rule.get("remove_special", False),
+            mapping=rule.get("mapping"),
+        )
+
+        after_non_null = cleaned[column].dropna()
+        after_unique = int(after_non_null.nunique())
+        after_sample = [str(value) for value in after_non_null.head(3).tolist()]
+
+        summary.append(
+            {
+                "column": column,
+                "before_unique": before_unique,
+                "after_unique": after_unique,
+                "before_sample": before_sample,
+                "after_sample": after_sample,
+            }
+        )
+
+    return cleaned, summary
+
+
 def ingest_data(filepath):
     """
     Load data from a CSV file.
@@ -188,6 +291,9 @@ def process_data(df):
     Returns:
         Cleaned DataFrame.
     """
+    # Normalise text columns before downstream analysis
+    df, text_summary = normalize_text_columns(df)
+
     # Enforce explicit types before any downstream analysis
     df, before_dtypes, after_dtypes, conversion_log = enforce_types(df)
 
@@ -202,6 +308,9 @@ def process_data(df):
     print(json.dumps(before_dtypes, indent=4))
     print("After dtypes:")
     print(json.dumps(after_dtypes, indent=4))
+
+    print("\n===== TEXT NORMALISATION =====")
+    print(json.dumps(text_summary, indent=4, default=str))
 
     if conversion_log:
         print("\nConversions applied:")

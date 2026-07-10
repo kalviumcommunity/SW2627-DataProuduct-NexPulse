@@ -1,4 +1,4 @@
-customer_id,transaction_date,amount,is_active,status,source
-1,2025-01-15,150.5,False,completed,crm
-2,2025-01-20,200.0,True,pending,crm
-3,2025-02-01,75.25,False,completed,crm
+customer_id,customer_name,city,product_category,segment,transaction_date,amount,is_active,status,source
+1,john,so paulo,electronics,b2b,2025-01-15,150.5,False,completed,crm
+2,ana-maria,montral,electronics,b2b,2025-01-20,200.0,True,pending,crm
+3,marta,lisbon,home  garden,retail,2025-02-01,75.25,False,completed,crm
