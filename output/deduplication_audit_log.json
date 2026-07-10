@@ -2,16 +2,6 @@
     {
         "duplicate_type": "near",
         "duplicate_key": {
-            "customer_id": 1,
-            "transaction_date": "2025-01-15 00:00:00"
-        },
-        "kept_index": 0,
-        "removed_index": 1,
-        "dedupe_reason": "Same business key; kept record with fewest nulls"
-    },
-    {
-        "duplicate_type": "near",
-        "duplicate_key": {
             "customer_id": 2,
             "transaction_date": "2025-01-20 00:00:00"
         },

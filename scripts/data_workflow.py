@@ -4,43 +4,10 @@ from pathlib import Path
 
 import pandas as pd
 
+from text_cleaning import normalize_text_columns as apply_text_normalization
+
 
 RAW_DATE_FORMAT = "%Y-%m-%d"
-TEXT_CLEANING_RULES = {
-    "customer_name": {"lowercase": True, "strip": True},
-    "city": {"lowercase": True, "strip": True, "remove_special": True},
-    "product_category": {
-        "lowercase": True,
-        "strip": True,
-        "remove_special": True,
-        "mapping": {
-            "electronics": "electronics",
-            "electro nics": "electronics",
-            "home garden": "home garden",
-            "home and garden": "home garden",
-        },
-    },
-    "segment": {
-        "lowercase": True,
-        "strip": True,
-        "remove_special": True,
-        "mapping": {
-            "b2b": "b2b",
-            "b 2 b": "b2b",
-            "business to business": "b2b",
-            "businesstobusiness": "b2b",
-            "retail": "retail",
-        },
-    },
-    "status": {
-        "lowercase": True,
-        "strip": True,
-    },
-    "source": {
-        "lowercase": True,
-        "strip": True,
-    },
-}
 
 
 def _coerce_currency(series):
@@ -57,26 +24,6 @@ def _coerce_boolean(series):
         raise ValueError("Boolean columns must contain only 0/1 values")
 
     return numeric.astype("boolean")
-
-
-def clean_text_column(series, lowercase=True, strip=True, remove_special=False, mapping=None):
-    """Apply reusable text normalisation steps to a single column."""
-    result = series.astype("string")
-
-    if strip:
-        result = result.str.strip()
-
-    if lowercase:
-        result = result.str.lower()
-
-    if remove_special:
-        result = result.str.replace(r"[^a-zA-Z0-9 ]", "", regex=True)
-
-    if mapping:
-        mapped = result.map(mapping)
-        result = mapped.fillna(result)
-
-    return result
 
 
 def build_demo_data():
@@ -228,44 +175,6 @@ def deduplicate_records(df, key_columns):
     return deduplicated.reset_index(drop=True), removed_records.reset_index(drop=True), summary, audit_log
 
 
-def normalize_text_columns(df):
-    """Clean any configured text columns that exist in the dataset."""
-    cleaned = df.copy()
-    summary = []
-
-    for column, rule in TEXT_CLEANING_RULES.items():
-        if column not in cleaned.columns:
-            continue
-
-        before_non_null = cleaned[column].dropna()
-        before_unique = int(before_non_null.nunique())
-        before_sample = [str(value) for value in before_non_null.head(3).tolist()]
-
-        cleaned[column] = clean_text_column(
-            cleaned[column],
-            lowercase=rule.get("lowercase", True),
-            strip=rule.get("strip", True),
-            remove_special=rule.get("remove_special", False),
-            mapping=rule.get("mapping"),
-        )
-
-        after_non_null = cleaned[column].dropna()
-        after_unique = int(after_non_null.nunique())
-        after_sample = [str(value) for value in after_non_null.head(3).tolist()]
-
-        summary.append(
-            {
-                "column": column,
-                "before_unique": before_unique,
-                "after_unique": after_unique,
-                "before_sample": before_sample,
-                "after_sample": after_sample,
-            }
-        )
-
-    return cleaned, summary
-
-
 def ingest_data(filepath):
     """
     Load data from a CSV file.
@@ -292,7 +201,7 @@ def process_data(df):
         Cleaned DataFrame.
     """
     # Normalise text columns before downstream analysis
-    df, text_summary = normalize_text_columns(df)
+    df, text_summary = apply_text_normalization(df)
 
     # Enforce explicit types before any downstream analysis
     df, before_dtypes, after_dtypes, conversion_log = enforce_types(df)
@@ -321,10 +230,10 @@ def process_data(df):
     print("\n===== DEDUPLICATION =====")
     print(json.dumps(dedupe_summary, indent=4, default=str))
 
-    return deduplicated_df, removed_records, dedupe_summary, audit_log
+    return deduplicated_df, removed_records, dedupe_summary, audit_log, text_summary
 
 
-def output_results(df, output_path, removed_records=None, summary=None, audit_log=None):
+def output_results(df, output_path, removed_records=None, summary=None, audit_log=None, text_report=None):
     """
     Save processed data.
 
@@ -348,6 +257,11 @@ def output_results(df, output_path, removed_records=None, summary=None, audit_lo
         audit_path = Path("output/deduplication_audit_log.json")
         with audit_path.open("w", encoding="utf-8") as file_handle:
             json.dump(audit_log, file_handle, indent=4, default=str)
+
+    if text_report is not None:
+        text_report_path = Path("output/text_normalisation_report.json")
+        with text_report_path.open("w", encoding="utf-8") as file_handle:
+            json.dump(text_report, file_handle, indent=4, default=str)
 
 
 def parse_args():
@@ -385,15 +299,32 @@ def load_dataset(args):
     print(f"Loading data from {input_path}")
     return ingest_data(str(input_path)), str(input_path)
 
+
+def print_text_normalisation_summary(text_summary):
+    """Print a compact summary that highlights normalization impact."""
+    print("\n===== TEXT NORMALISATION =====")
+    print(json.dumps(text_summary, indent=4, default=str))
+
+
+def print_quality_summary(processed_df, removed_records, source_label):
+    """Print a short end-of-run summary for reviewers."""
+    print("\n===== RUN SUMMARY =====")
+    print(f"Source used: {source_label}")
+    print(f"Rows after dedupe: {len(processed_df)}")
+    print(f"Removed records tracked: {len(removed_records)}")
+
+
 if __name__ == "__main__":
     args = parse_args()
     output_path = Path(args.output_path)
 
     data, source_label = load_dataset(args)
-    processed, removed_records, summary, audit_log = process_data(data)
-    output_results(processed, str(output_path), removed_records, summary, audit_log)
+    processed, removed_records, summary, audit_log, text_report = process_data(data)
+    output_results(processed, str(output_path), removed_records, summary, audit_log, text_report)
 
     print("Data successfully processed")
     print(f"Rows processed: {len(processed)}")
     print(f"Source used: {source_label}")
     print(f"Output saved to {output_path}")
+    print_text_normalisation_summary(text_report)
+    print_quality_summary(processed, removed_records, source_label)
