@@ -1,0 +1,11 @@
+id,customer_id,amount,status,transaction_date,transaction_day_of_week,transaction_day_of_week_num,transaction_hour_of_day,transaction_week_number,transaction_month,transaction_quarter,days_since_transaction
+1,1,100,completed,2025-01-15 14:30:45,Wednesday,2,14,3,1,1,547
+2,2,250,pending,2025-01-20 09:15:00,Monday,0,9,4,1,1,542
+3,1,150,completed,2025-02-01 18:05:30,Saturday,5,18,5,2,1,529
+4,3,320,completed,2025-02-10 11:45:00,Monday,0,11,7,2,1,521
+5,4,75,pending,2025-03-05 08:00:00,Wednesday,2,8,10,3,1,498
+6,2,490,completed,2025-03-12 20:22:10,Wednesday,2,20,11,3,1,490
+7,5,210,completed,2025-04-03 16:10:55,Thursday,3,16,14,4,2,468
+8,3,130,failed,2025-04-18 07:55:30,Friday,4,7,16,4,2,454
+9,1,600,completed,2025-05-22 13:40:00,Thursday,3,13,21,5,2,420
+10,4,45,completed,2025-06-01 23:59:00,Sunday,6,23,22,6,2,409
