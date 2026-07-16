@@ -1,0 +1,153 @@
+{
+    "cleaning_log": [
+        {
+            "column": "salary",
+            "detection_method": "zscore",
+            "handling_strategy": "cap",
+            "threshold_used": 3.0,
+            "lower_bound": -218456.9067,
+            "upper_bound": 347213.6062,
+            "outliers_detected": 1,
+            "rows_before": 40,
+            "rows_after": 40,
+            "action_detail": "Values clipped to [-218456.9067, 347213.6062]",
+            "business_reason": "Executive compensation outliers skew mean salary. Cap at 3-sigma boundary to preserve the row while bounding influence."
+        },
+        {
+            "column": "transaction_amount",
+            "detection_method": "iqr",
+            "handling_strategy": "cap",
+            "threshold_used": 1.5,
+            "lower_bound": -233.855,
+            "upper_bound": 613.785,
+            "outliers_detected": 3,
+            "rows_before": 40,
+            "rows_after": 40,
+            "action_detail": "Values clipped to [-233.855, 613.785]",
+            "business_reason": "Transaction amounts follow a right-skewed distribution. IQR is more robust than Z-score for skewed data. Cap prevents extreme spend from distorting average order value."
+        },
+        {
+            "column": "vacation_days",
+            "detection_method": "iqr",
+            "handling_strategy": "flag",
+            "threshold_used": 1.5,
+            "lower_bound": -10.125,
+            "upper_bound": 34.875,
+            "outliers_detected": 2,
+            "rows_before": 40,
+            "rows_after": 40,
+            "action_detail": "Flag column 'is_vacation_days_outlier' added; 2 row(s) marked True",
+            "business_reason": "Vacation days above company max (30) may reflect data-entry errors or special leave. Flag for HR review rather than silently removing."
+        },
+        {
+            "column": "return_rate",
+            "detection_method": "zscore",
+            "handling_strategy": "remove",
+            "threshold_used": 3.0,
+            "lower_bound": -45.7675,
+            "upper_bound": 74.5265,
+            "outliers_detected": 2,
+            "rows_before": 40,
+            "rows_after": 38,
+            "action_detail": "2 row(s) removed",
+            "business_reason": "Return rates above 90 % are physically implausible for this product category and indicate data collection errors. Remove the row."
+        },
+        {
+            "column": "quantity",
+            "detection_method": "iqr",
+            "handling_strategy": "flag",
+            "threshold_used": 1.5,
+            "lower_bound": -5.125,
+            "upper_bound": 21.875,
+            "outliers_detected": 2,
+            "rows_before": 38,
+            "rows_after": 38,
+            "action_detail": "Flag column 'is_quantity_outlier' added; 2 row(s) marked True",
+            "business_reason": "Unusually high order quantities may be bulk/wholesale orders. Flag for separate analysis; do not remove or cap."
+        }
+    ],
+    "statistics_before": {
+        "salary": {
+            "mean": 64378.3497,
+            "median": 50444.155,
+            "std": 95479.4662,
+            "min": 3000.0,
+            "max": 650000.0,
+            "count": 40
+        },
+        "transaction_amount": {
+            "mean": 1475.3547,
+            "median": 208.14,
+            "std": 7872.0712,
+            "min": 0.01,
+            "max": 50000.0,
+            "count": 40
+        },
+        "vacation_days": {
+            "mean": 17.2,
+            "median": 11.5,
+            "std": 26.2104,
+            "min": 0.0,
+            "max": 150.0,
+            "count": 40
+        },
+        "return_rate": {
+            "mean": 14.3795,
+            "median": 11.6,
+            "std": 20.3044,
+            "min": 0.46,
+            "max": 99.0,
+            "count": 40
+        },
+        "quantity": {
+            "mean": 51.025,
+            "median": 8.5,
+            "std": 190.9419,
+            "min": 1.0,
+            "max": 980.0,
+            "count": 40
+        }
+    },
+    "statistics_after": {
+        "salary": {
+            "mean": 57404.9399,
+            "median": 51730.23,
+            "std": 49322.374,
+            "min": 3000.0,
+            "max": 347213.6062,
+            "count": 38
+        },
+        "transaction_amount": {
+            "mean": 231.3683,
+            "median": 220.01,
+            "std": 173.8786,
+            "min": 0.01,
+            "max": 613.785,
+            "count": 38
+        },
+        "vacation_days": {
+            "mean": 17.7632,
+            "median": 12.0,
+            "std": 26.7818,
+            "min": 0.0,
+            "max": 150.0,
+            "count": 38
+        },
+        "return_rate": {
+            "mean": 9.9653,
+            "median": 10.73,
+            "std": 5.8551,
+            "min": 0.46,
+            "max": 19.38,
+            "count": 38
+        },
+        "quantity": {
+            "mean": 53.3421,
+            "median": 8.5,
+            "std": 195.7525,
+            "min": 1.0,
+            "max": 980.0,
+            "count": 38
+        }
+    }
+}
