@@ -1,0 +1,5 @@
+customer_id,email,phone,birth_date,age,price,campaign_start_date,campaign_end_date,country_code,discount_pct
+1.0,alice@example.com,5551234567,1990-06-15,34,19.99,2025-01-01,2025-01-31,US,10
+7.0,frank@example.com,5552223333,2000-08-19,24,89.99,2025-07-01,2025-07-31,US,30
+10.0,ivan@example.com,5558889999,2002-02-14,22,7.75,2025-10-01,2025-10-31,AU,0
+11.0,judy@example.com,5550123456,1993-07-07,31,33.0,2025-11-01,2025-11-30,CA,25
