@@ -1,0 +1,138 @@
+[
+    {
+        "column": "customer_name",
+        "before_unique": 5,
+        "after_unique": 4,
+        "before_sample": [
+            " John ",
+            "john",
+            "Ana-Maria"
+        ],
+        "after_sample": [
+            "john",
+            "john",
+            "ana-maria"
+        ],
+        "rule": {
+            "lowercase": true,
+            "strip": true,
+            "normalize_unicode": true
+        }
+    },
+    {
+        "column": "city",
+        "before_unique": 5,
+        "after_unique": 3,
+        "before_sample": [
+            " S\u00e3o Paulo ",
+            "Sao Paulo",
+            "Montr\u00e9al"
+        ],
+        "after_sample": [
+            "sao paulo",
+            "sao paulo",
+            "montreal"
+        ],
+        "rule": {
+            "lowercase": true,
+            "strip": true,
+            "remove_special": true,
+            "normalize_unicode": true
+        }
+    },
+    {
+        "column": "product_category",
+        "before_unique": 5,
+        "after_unique": 2,
+        "before_sample": [
+            " Electronics ",
+            "electronics",
+            "ELECTRONICS"
+        ],
+        "after_sample": [
+            "electronics",
+            "electronics",
+            "electronics"
+        ],
+        "rule": {
+            "lowercase": true,
+            "strip": true,
+            "remove_special": true,
+            "normalize_unicode": true,
+            "mapping": {
+                "electronics": "electronics",
+                "electro nics": "electronics",
+                "home garden": "home garden",
+                "home and garden": "home garden"
+            }
+        }
+    },
+    {
+        "column": "segment",
+        "before_unique": 5,
+        "after_unique": 2,
+        "before_sample": [
+            "B2B",
+            "b 2 b",
+            "business-to-business"
+        ],
+        "after_sample": [
+            "b2b",
+            "b2b",
+            "b2b"
+        ],
+        "rule": {
+            "lowercase": true,
+            "strip": true,
+            "remove_special": true,
+            "normalize_unicode": true,
+            "mapping": {
+                "b2b": "b2b",
+                "b 2 b": "b2b",
+                "business to business": "b2b",
+                "businesstobusiness": "b2b",
+                "retail": "retail"
+            }
+        }
+    },
+    {
+        "column": "status",
+        "before_unique": 2,
+        "after_unique": 2,
+        "before_sample": [
+            "completed",
+            "completed",
+            "pending"
+        ],
+        "after_sample": [
+            "completed",
+            "completed",
+            "pending"
+        ],
+        "rule": {
+            "lowercase": true,
+            "strip": true,
+            "normalize_unicode": true
+        }
+    },
+    {
+        "column": "source",
+        "before_unique": 2,
+        "after_unique": 2,
+        "before_sample": [
+            "crm",
+            "crm",
+            "crm"
+        ],
+        "after_sample": [
+            "crm",
+            "crm",
+            "crm"
+        ],
+        "rule": {
+            "lowercase": true,
+            "strip": true,
+            "normalize_unicode": true
+        }
+    }
+]

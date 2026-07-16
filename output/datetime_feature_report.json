@@ -1,0 +1,209 @@
+{
+    "feature_summary": {
+        "reference_date": "2026-07-16T14:34:22.516694",
+        "feature_columns": [
+            "transaction_day_of_week",
+            "transaction_day_of_week_num",
+            "transaction_hour_of_day",
+            "transaction_week_number",
+            "transaction_month",
+            "transaction_quarter",
+            "days_since_transaction"
+        ],
+        "hour_of_day_distribution": {
+            "7": 1,
+            "8": 1,
+            "9": 1,
+            "11": 1,
+            "13": 1,
+            "14": 1,
+            "16": 1,
+            "18": 1,
+            "20": 1,
+            "23": 1
+        },
+        "day_of_week_distribution": {
+            "Wednesday": 3,
+            "Monday": 2,
+            "Thursday": 2,
+            "Saturday": 1,
+            "Friday": 1,
+            "Sunday": 1
+        },
+        "week_number_distribution": {
+            "3": 1,
+            "4": 1,
+            "5": 1,
+            "7": 1,
+            "10": 1,
+            "11": 1,
+            "14": 1,
+            "16": 1,
+            "21": 1,
+            "22": 1
+        },
+        "month_distribution": {
+            "1": 2,
+            "2": 2,
+            "3": 2,
+            "4": 2,
+            "5": 1,
+            "6": 1
+        },
+        "recency_stats": {
+            "min_days": 409,
+            "max_days": 547,
+            "mean_days": 487.8
+        }
+    },
+    "time_series_aggregations": {
+        "daily": [
+            {
+                "period_end": "2025-01-15T00:00:00",
+                "total_amount": 100.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-01-20T00:00:00",
+                "total_amount": 250.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-02-01T00:00:00",
+                "total_amount": 150.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-02-10T00:00:00",
+                "total_amount": 320.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-03-05T00:00:00",
+                "total_amount": 75.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-03-12T00:00:00",
+                "total_amount": 490.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-04-03T00:00:00",
+                "total_amount": 210.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-04-18T00:00:00",
+                "total_amount": 130.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-05-22T00:00:00",
+                "total_amount": 600.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-06-01T00:00:00",
+                "total_amount": 45.0,
+                "transaction_count": 1
+            }
+        ],
+        "weekly": [
+            {
+                "period_end": "2025-01-19T00:00:00",
+                "total_amount": 100.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-01-26T00:00:00",
+                "total_amount": 250.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-02-02T00:00:00",
+                "total_amount": 150.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-02-16T00:00:00",
+                "total_amount": 320.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-03-09T00:00:00",
+                "total_amount": 75.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-03-16T00:00:00",
+                "total_amount": 490.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-04-06T00:00:00",
+                "total_amount": 210.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-04-20T00:00:00",
+                "total_amount": 130.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-05-25T00:00:00",
+                "total_amount": 600.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-06-01T00:00:00",
+                "total_amount": 45.0,
+                "transaction_count": 1
+            }
+        ],
+        "monthly": [
+            {
+                "period_end": "2025-01-31T00:00:00",
+                "total_amount": 350.0,
+                "transaction_count": 2
+            },
+            {
+                "period_end": "2025-02-28T00:00:00",
+                "total_amount": 470.0,
+                "transaction_count": 2
+            },
+            {
+                "period_end": "2025-03-31T00:00:00",
+                "total_amount": 565.0,
+                "transaction_count": 2
+            },
+            {
+                "period_end": "2025-04-30T00:00:00",
+                "total_amount": 340.0,
+                "transaction_count": 2
+            },
+            {
+                "period_end": "2025-05-31T00:00:00",
+                "total_amount": 600.0,
+                "transaction_count": 1
+            },
+            {
+                "period_end": "2025-06-30T00:00:00",
+                "total_amount": 45.0,
+                "transaction_count": 1
+            }
+        ],
+        "quarterly": [
+            {
+                "period_end": "2025-03-31T00:00:00",
+                "total_amount": 1385.0,
+                "transaction_count": 6
+            },
+            {
+                "period_end": "2025-06-30T00:00:00",
+                "total_amount": 985.0,
+                "transaction_count": 4
+            }
+        ]
+    }
+}
