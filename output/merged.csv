@@ -1,0 +1,15 @@
+customer_id,customer_name,segment,country,signup_date,order_id,order_date,amount,status
+1,Alice,B2C,US,2023-01-10,101.0,2024-01-05,150.0,completed
+1,Alice,B2C,US,2023-01-10,102.0,2024-02-10,89.5,completed
+2,Bob,B2B,GB,2023-02-14,103.0,2024-01-20,320.0,completed
+2,Bob,B2B,GB,2023-02-14,104.0,2024-03-15,45.0,pending
+3,Carol,B2C,FR,2023-03-05,105.0,2024-02-28,210.75,completed
+4,Diana,B2B,DE,2023-04-20,106.0,2024-04-01,500.0,completed
+5,Eve,B2C,IN,2023-05-18,107.0,2024-01-12,75.25,completed
+6,Frank,B2B,AU,2023-06-01,108.0,2024-05-06,430.0,completed
+7,Grace,B2C,CA,2023-07-22,109.0,2024-03-22,190.0,pending
+8,Heidi,B2C,JP,2023-08-30,110.0,2024-02-14,60.0,completed
+8,Heidi,B2C,JP,2023-08-30,111.0,2024-04-18,320.0,completed
+8,Heidi,B2C,JP,2023-08-30,112.0,2024-06-01,85.5,completed
+9,Ivan,B2B,US,2023-09-11,,,,
+10,Judy,B2C,GB,2023-10-03,,,,
