@@ -1,0 +1,123 @@
+[
+    {
+        "rule_id": "null_customer_id",
+        "category": "null_constraint",
+        "description": "customer_id must never be null \u2014 it is the primary key.",
+        "columns_checked": [
+            "customer_id"
+        ],
+        "total_rows": 12,
+        "passed": 11,
+        "failed": 1,
+        "pass_rate_pct": 91.67
+    },
+    {
+        "rule_id": "null_email",
+        "category": "null_constraint",
+        "description": "email must never be null \u2014 required for all communications.",
+        "columns_checked": [
+            "email"
+        ],
+        "total_rows": 12,
+        "passed": 11,
+        "failed": 1,
+        "pass_rate_pct": 91.67
+    },
+    {
+        "rule_id": "format_email",
+        "category": "format_pattern",
+        "description": "email must contain '@' and at least one '.' after it.",
+        "columns_checked": [
+            "email"
+        ],
+        "total_rows": 12,
+        "passed": 9,
+        "failed": 3,
+        "pass_rate_pct": 75.0
+    },
+    {
+        "rule_id": "format_phone",
+        "category": "format_pattern",
+        "description": "phone must be exactly 10 digits with no separators.",
+        "columns_checked": [
+            "phone"
+        ],
+        "total_rows": 12,
+        "passed": 10,
+        "failed": 2,
+        "pass_rate_pct": 83.33
+    },
+    {
+        "rule_id": "range_birth_date",
+        "category": "range_check",
+        "description": "birth_date must be between 1920-01-01 and today (2026-07-16). Future dates and dates before 1920 are invalid.",
+        "columns_checked": [
+            "birth_date"
+        ],
+        "total_rows": 12,
+        "passed": 10,
+        "failed": 2,
+        "pass_rate_pct": 83.33
+    },
+    {
+        "rule_id": "range_age",
+        "category": "range_check",
+        "description": "age must be between 0 and 150 \u2014 values outside this range are impossible.",
+        "columns_checked": [
+            "age"
+        ],
+        "total_rows": 12,
+        "passed": 11,
+        "failed": 1,
+        "pass_rate_pct": 91.67
+    },
+    {
+        "rule_id": "range_price_non_negative",
+        "category": "range_check",
+        "description": "price must be >= 0. Negative prices indicate data entry errors.",
+        "columns_checked": [
+            "price"
+        ],
+        "total_rows": 12,
+        "passed": 11,
+        "failed": 1,
+        "pass_rate_pct": 91.67
+    },
+    {
+        "rule_id": "range_discount_pct",
+        "category": "range_check",
+        "description": "discount_pct must be between 0 and 50. Discounts above 50 % are not approved.",
+        "columns_checked": [
+            "discount_pct"
+        ],
+        "total_rows": 12,
+        "passed": 10,
+        "failed": 2,
+        "pass_rate_pct": 83.33
+    },
+    {
+        "rule_id": "ref_country_code",
+        "category": "referential",
+        "description": "country_code must be a valid ISO 3166-1 alpha-2 code. Unknown codes cannot be mapped to regions.",
+        "columns_checked": [
+            "country_code"
+        ],
+        "total_rows": 12,
+        "passed": 10,
+        "failed": 2,
+        "pass_rate_pct": 83.33
+    },
+    {
+        "rule_id": "biz_campaign_date_order",
+        "category": "business_rule",
+        "description": "campaign_end_date must be >= campaign_start_date. A campaign cannot end before it starts.",
+        "columns_checked": [
+            "campaign_start_date",
+            "campaign_end_date"
+        ],
+        "total_rows": 12,
+        "passed": 10,
+        "failed": 2,
+        "pass_rate_pct": 83.33
+    }
+]

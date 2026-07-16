@@ -1,0 +1,9 @@
+customer_id,email,phone,birth_date,age,price,campaign_start_date,campaign_end_date,country_code,discount_pct,pass_null_customer_id,pass_null_email,pass_format_email,pass_format_phone,pass_range_birth_date,pass_range_age,pass_range_price_non_negative,pass_range_discount_pct,pass_ref_country_code,pass_biz_campaign_date_order,passes_all_checks,failure_reasons
+2.0,bob_no_at_sign,555-123-4567,2050-01-01,25,5.0,2025-02-01,2025-01-15,GB,5,True,True,False,False,False,True,True,True,True,False,False,format_email; format_phone; range_birth_date; biz_campaign_date_order
+,carol@example.com,5559876543,1985-03-22,39,-3.5,2025-03-01,2025-03-31,FR,0,False,True,True,True,True,True,False,True,True,True,False,null_customer_id; range_price_non_negative
+4.0,,5554561234,1978-11-05,46,120.0,2025-04-01,2025-04-30,ZZ,20,True,False,False,True,True,True,True,True,False,True,False,null_email; format_email; ref_country_code
+5.0,diana@example.com,NOT_A_PHONE,1800-07-04,224,45.0,2025-05-01,2025-05-31,DE,15,True,True,True,False,False,False,True,True,True,True,False,format_phone; range_birth_date; range_age
+6.0,eve@example.com,5550001111,1995-12-31,29,0.0,2025-06-01,2025-06-30,IN,55,True,True,True,True,True,True,True,False,True,True,False,range_discount_pct
+8.0,grace@example.com,5554445555,1970-04-10,54,12.5,2025-08-01,2025-07-25,GB,10,True,True,True,True,True,True,True,True,True,False,False,biz_campaign_date_order
+9.0,heidi@,5556667777,1988-09-27,36,55.0,2025-09-01,2025-09-30,XQ,5,True,True,False,True,True,True,True,True,False,True,False,format_email; ref_country_code
+12.0,mallory@example.com,5557654321,1967-10-30,57,199.99,2025-12-01,2025-12-31,JP,60,True,True,True,True,True,True,True,False,True,True,False,range_discount_pct
