@@ -1,0 +1,61 @@
+{
+    "merge_report": {
+        "join_key": "customer_id",
+        "join_type": "left",
+        "join_semantics": {
+            "keeps": "All rows from the LEFT table; matched rows from RIGHT; NaN where RIGHT has no match.",
+            "result_size": "Equal to the left table row count (before multiplicity).",
+            "use_when": "The LEFT table is your source of truth (e.g. customers). The RIGHT table is enrichment (e.g. orders). Customers with no orders are kept; their order columns are NaN."
+        },
+        "business_reason": "Left join chosen: 'customers' is the source of truth. 'orders' enriches each record. Unmatched customers rows are retained with NaN for orders columns.",
+        "row_counts": {
+            "customers": 10,
+            "orders": 13,
+            "merged": 14,
+            "delta_vs_left": 4
+        },
+        "count_explanation": "Left join keeps all 10 left rows plus row multiplication where right has multiple matches per key. Result (14) > left (10).",
+        "multiplicity": {
+            "keys_with_multiple_rows": 3,
+            "extra_rows_created": 4
+        }
+    },
+    "unmatched_summary": {
+        "matched_keys": 8,
+        "keys_only_in_customers": 2,
+        "unmatched_rows_in_customers": 2,
+        "sample_unmatched_customers_keys": [
+            "10",
+            "9"
+        ],
+        "keys_only_in_orders": 1,
+        "unmatched_rows_in_orders": 1,
+        "sample_unmatched_orders_keys": [
+            "99"
+        ]
+    },
+    "post_merge_quality": {
+        "total_merged_rows": 14,
+        "total_merged_columns": 9,
+        "duplicate_rows": 0,
+        "overall_null_rate_pct": 6.35,
+        "null_from_right_table": {
+            "order_id": {
+                "null_count": 2,
+                "null_rate_pct": 14.29
+            },
+            "order_date": {
+                "null_count": 2,
+                "null_rate_pct": 14.29
+            },
+            "amount": {
+                "null_count": 2,
+                "null_rate_pct": 14.29
+            },
+            "status": {
+                "null_count": 2,
+                "null_rate_pct": 14.29
+            }
+        }
+    }
+}
