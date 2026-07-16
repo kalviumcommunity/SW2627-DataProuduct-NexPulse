@@ -1,0 +1,317 @@
+{
+    "feature_log": [
+        {
+            "column": "transactions_per_month",
+            "type": "ratio",
+            "formula": "total_transactions / (days_as_customer / 30)",
+            "business_meaning": "Engagement rate normalised by tenure. 50 transactions over 5 years differs greatly from 50 in one month."
+        },
+        {
+            "column": "avg_spend_per_transaction",
+            "type": "ratio",
+            "formula": "total_spent / total_transactions",
+            "business_meaning": "Average basket size. Distinguishes a high-frequency low-value buyer from a low-frequency high-value buyer."
+        },
+        {
+            "column": "lifetime_value_per_month",
+            "type": "ratio",
+            "formula": "total_spent / (days_as_customer / 30)",
+            "business_meaning": "Revenue rate per active month. Comparable across customers with different tenure lengths."
+        },
+        {
+            "column": "return_rate",
+            "type": "ratio",
+            "formula": "total_returns / total_transactions",
+            "business_meaning": "Proportion of orders returned. High return rate signals dissatisfaction or mis-matched product expectations."
+        },
+        {
+            "column": "engagement_tier",
+            "type": "binned_equal_width",
+            "source": "transactions_per_month",
+            "boundaries": [
+                0,
+                2,
+                10,
+                "inf"
+            ],
+            "labels": [
+                "low",
+                "medium",
+                "high"
+            ],
+            "business_meaning": "Actionable engagement segment. 'high' (>10 tx/month) are power users. 'low' (<2 tx/month) are at risk of churn. Drives different retention strategies per tier."
+        },
+        {
+            "column": "return_risk_tier",
+            "type": "binned_equal_width",
+            "source": "return_rate",
+            "boundaries": [
+                0,
+                0.1,
+                0.25,
+                "inf"
+            ],
+            "labels": [
+                "low",
+                "medium",
+                "high"
+            ],
+            "business_meaning": "Return risk segment. 'high' (>25 % return rate) customers are costly to serve and may indicate product-fit issues."
+        },
+        {
+            "column": "spend_quartile",
+            "type": "binned_quantile",
+            "source": "total_spent",
+            "q": 4,
+            "labels": [
+                "tier_1",
+                "tier_2",
+                "tier_3",
+                "tier_4"
+            ],
+            "business_meaning": "Equal-frequency spend segments. tier_4 is the top 25 % spenders. Quartile-based so each tier has roughly the same customer count, enabling balanced segment analysis."
+        },
+        {
+            "column": "ltv_per_month_quartile",
+            "type": "binned_quantile",
+            "source": "lifetime_value_per_month",
+            "q": 4,
+            "labels": [
+                "tier_1",
+                "tier_2",
+                "tier_3",
+                "tier_4"
+            ],
+            "business_meaning": "Revenue-rate quartile. Normalises by tenure so a short-tenure high-spender ranks fairly against a long-tenure moderate spender."
+        },
+        {
+            "column": "recency_score",
+            "type": "rfm_component",
+            "source": "days_since_last_purchase",
+            "scale": "1 (least recent) \u2013 5 (most recent)",
+            "business_meaning": "How recently the customer purchased. Score 5 = purchased in the last few days. Score 1 = has not purchased in a long time."
+        },
+        {
+            "column": "frequency_score",
+            "type": "rfm_component",
+            "source": "total_transactions",
+            "scale": "1 (fewest) \u2013 5 (most transactions)",
+            "business_meaning": "How often the customer purchases. Score 5 = top 20 %% most frequent buyers."
+        },
+        {
+            "column": "monetary_score",
+            "type": "rfm_component",
+            "source": "total_spent",
+            "scale": "1 (lowest spend) \u2013 5 (highest spend)",
+            "business_meaning": "How much the customer has spent in total. Score 5 = top 20 %% highest-value customers."
+        },
+        {
+            "column": "rfm_score",
+            "type": "composite",
+            "formula": "recency_score + frequency_score + monetary_score",
+            "range": "3 (lowest) \u2013 15 (highest)",
+            "business_meaning": "Single interpretable customer health score combining recency, frequency, and monetary signals. Drives segmentation and targeted retention/upsell campaigns."
+        },
+        {
+            "column": "rfm_segment",
+            "type": "composite_tier",
+            "source": "rfm_score",
+            "boundaries": {
+                "dormant": "3\u20136",
+                "at_risk": "7\u20139",
+                "loyal": "10\u201312",
+                "champions": "13\u201315"
+            },
+            "business_meaning": "Actionable customer segment derived from RFM score. 'champions' receive VIP treatment; 'dormant' receive win-back campaigns."
+        }
+    ],
+    "distribution_validation": {
+        "transactions_per_month": {
+            "null_count": 0,
+            "null_rate_pct": 0.0,
+            "feature_type": "ratio",
+            "min": 0.0,
+            "max": 63.6585,
+            "mean": 7.5701,
+            "median": 3.5821,
+            "std": 11.7289
+        },
+        "avg_spend_per_transaction": {
+            "null_count": 0,
+            "null_rate_pct": 0.0,
+            "feature_type": "ratio",
+            "min": 0.0,
+            "max": 125.34,
+            "mean": 8.3914,
+            "median": 2.2068,
+            "std": 21.9429
+        },
+        "lifetime_value_per_month": {
+            "null_count": 0,
+            "null_rate_pct": 0.0,
+            "feature_type": "ratio",
+            "min": 0.0,
+            "max": 224.0297,
+            "mean": 22.8737,
+            "median": 9.2493,
+            "std": 38.9366
+        },
+        "return_rate": {
+            "null_count": 0,
+            "null_rate_pct": 0.0,
+            "feature_type": "ratio",
+            "min": 0.0,
+            "max": 12.0,
+            "mean": 0.3859,
+            "median": 0.07,
+            "std": 1.7013
+        },
+        "engagement_tier": {
+            "null_count": 0,
+            "null_rate_pct": 0.0,
+            "feature_type": "binned_equal_width",
+            "value_distribution": {
+                "medium": {
+                    "count": 30,
+                    "pct": 60.0
+                },
+                "low": {
+                    "count": 12,
+                    "pct": 24.0
+                },
+                "high": {
+                    "count": 8,
+                    "pct": 16.0
+                }
+            }
+        },
+        "return_risk_tier": {
+            "null_count": 0,
+            "null_rate_pct": 0.0,
+            "feature_type": "binned_equal_width",
+            "value_distribution": {
+                "low": {
+                    "count": 34,
+                    "pct": 68.0
+                },
+                "medium": {
+                    "count": 9,
+                    "pct": 18.0
+                },
+                "high": {
+                    "count": 7,
+                    "pct": 14.0
+                }
+            }
+        },
+        "spend_quartile": {
+            "null_count": 0,
+            "null_rate_pct": 0.0,
+            "feature_type": "binned_quantile",
+            "value_distribution": {
+                "tier_1": {
+                    "count": 13,
+                    "pct": 26.0
+                },
+                "tier_4": {
+                    "count": 13,
+                    "pct": 26.0
+                },
+                "tier_2": {
+                    "count": 12,
+                    "pct": 24.0
+                },
+                "tier_3": {
+                    "count": 12,
+                    "pct": 24.0
+                }
+            }
+        },
+        "ltv_per_month_quartile": {
+            "null_count": 0,
+            "null_rate_pct": 0.0,
+            "feature_type": "binned_quantile",
+            "value_distribution": {
+                "tier_1": {
+                    "count": 13,
+                    "pct": 26.0
+                },
+                "tier_4": {
+                    "count": 13,
+                    "pct": 26.0
+                },
+                "tier_2": {
+                    "count": 12,
+                    "pct": 24.0
+                },
+                "tier_3": {
+                    "count": 12,
+                    "pct": 24.0
+                }
+            }
+        },
+        "recency_score": {
+            "null_count": 0,
+            "null_rate_pct": 0.0,
+            "feature_type": "rfm_component",
+            "min": 1.0,
+            "max": 5.0,
+            "mean": 3.0,
+            "median": 3.0,
+            "std": 1.4286
+        },
+        "frequency_score": {
+            "null_count": 0,
+            "null_rate_pct": 0.0,
+            "feature_type": "rfm_component",
+            "min": 1.0,
+            "max": 5.0,
+            "mean": 3.0,
+            "median": 3.0,
+            "std": 1.4286
+        },
+        "monetary_score": {
+            "null_count": 0,
+            "null_rate_pct": 0.0,
+            "feature_type": "rfm_component",
+            "min": 1.0,
+            "max": 5.0,
+            "mean": 3.0,
+            "median": 3.0,
+            "std": 1.4286
+        },
+        "rfm_score": {
+            "null_count": 0,
+            "null_rate_pct": 0.0,
+            "feature_type": "composite",
+            "min": 3.0,
+            "max": 15.0,
+            "mean": 9.0,
+            "median": 9.0,
+            "std": 2.4908
+        },
+        "rfm_segment": {
+            "null_count": 0,
+            "null_rate_pct": 0.0,
+            "feature_type": "composite_tier",
+            "value_distribution": {
+                "loyal": {
+                    "count": 20,
+                    "pct": 40.0
+                },
+                "at_risk": {
+                    "count": 19,
+                    "pct": 38.0
+                },
+                "dormant": {
+                    "count": 9,
+                    "pct": 18.0
+                },
+                "champions": {
+                    "count": 2,
+                    "pct": 4.0
+                }
+            }
+        }
+    }
+}
