@@ -1,0 +1,258 @@
+{
+    "columns": {
+        "customer_id": {
+            "statistics": {
+                "count": 5000,
+                "null_count": 0,
+                "mean": 2500.5,
+                "median": 2500.5,
+                "mode": 1.0,
+                "std": 1443.52,
+                "min": 1.0,
+                "max": 5000.0,
+                "q25": 1250.75,
+                "q50": 2500.5,
+                "q75": 3750.25,
+                "skewness": 0.0,
+                "kurtosis": -1.2
+            },
+            "interpretation": {
+                "column": "customer_id",
+                "shape": "approximately symmetric",
+                "skew_direction": "none",
+                "recommended_central_tendency": "mean",
+                "tail_behavior": "light tails \u2014 fewer extreme outliers than normal",
+                "mean_vs_median": "Mean (2500.50) \u2248 median (2500.50) \u2014 symmetric center.",
+                "business_insight": "customer_id is relatively well-behaved: symmetric and no extreme tails. Mean (2500.50) is a trustworthy summary."
+            },
+            "bimodal_detection": {
+                "bimodal": true,
+                "interpretation": "customer_id shows a bimodal distribution with two distinct clusters. This suggests two different underlying populations or behaviors (e.g. active vs churned customers, small vs enterprise accounts). Consider segmenting the analysis."
+            },
+            "plot": "distribution_customer_id.png"
+        },
+        "revenue": {
+            "statistics": {
+                "count": 5000,
+                "null_count": 0,
+                "mean": 2875.4351,
+                "median": 176.04,
+                "mode": 21.87,
+                "std": 8988.6282,
+                "min": 10.08,
+                "max": 49935.08,
+                "q25": 74.79,
+                "q50": 176.04,
+                "q75": 368.195,
+                "skewness": 3.5536,
+                "kurtosis": 11.8555
+            },
+            "interpretation": {
+                "column": "revenue",
+                "shape": "highly skewed",
+                "skew_direction": "right",
+                "recommended_central_tendency": "median strongly preferred (mean is misleading)",
+                "tail_behavior": "heavy tails \u2014 expect extreme outliers",
+                "mean_vs_median": "Mean (2875.44) differs 93.9% from median (176.04). Distribution is pulled by a tail.",
+                "business_insight": "Most revenue values are low, but a few extremely high values pull the average up. Median (176.04) better represents the typical value than mean (2875.44). Expect extreme outliers in revenue. Consider capping or flagging values beyond the 99th percentile for robustness."
+            },
+            "bimodal_detection": {
+                "bimodal": true,
+                "interpretation": "revenue shows a bimodal distribution with two distinct clusters. This suggests two different underlying populations or behaviors (e.g. active vs churned customers, small vs enterprise accounts). Consider segmenting the analysis."
+            },
+            "plot": "distribution_revenue.png"
+        },
+        "profit_margin": {
+            "statistics": {
+                "count": 5000,
+                "null_count": 0,
+                "mean": 24.8621,
+                "median": 24.975,
+                "mode": 25.72,
+                "std": 8.0297,
+                "min": 0.0,
+                "max": 56.2,
+                "q25": 19.49,
+                "q50": 24.975,
+                "q75": 30.2,
+                "skewness": -0.0133,
+                "kurtosis": 0.0072
+            },
+            "interpretation": {
+                "column": "profit_margin",
+                "shape": "approximately symmetric",
+                "skew_direction": "left",
+                "recommended_central_tendency": "mean",
+                "tail_behavior": "normal-like tails",
+                "mean_vs_median": "Mean (24.86) \u2248 median (24.98) \u2014 symmetric center.",
+                "business_insight": "profit_margin is relatively well-behaved: symmetric and no extreme tails. Mean (24.86) is a trustworthy summary."
+            },
+            "bimodal_detection": null,
+            "plot": "distribution_profit_margin.png"
+        },
+        "days_since_last_purchase": {
+            "statistics": {
+                "count": 5000,
+                "null_count": 0,
+                "mean": 215.5608,
+                "median": 26.0,
+                "mode": 30.0,
+                "std": 257.6148,
+                "min": 0.0,
+                "max": 730.0,
+                "q25": 12.0,
+                "q50": 26.0,
+                "q75": 470.0,
+                "skewness": 0.6669,
+                "kurtosis": -1.2633
+            },
+            "interpretation": {
+                "column": "days_since_last_purchase",
+                "shape": "moderately skewed",
+                "skew_direction": "right",
+                "recommended_central_tendency": "median preferred",
+                "tail_behavior": "light tails \u2014 fewer extreme outliers than normal",
+                "mean_vs_median": "Mean (215.56) differs 87.9% from median (26.00). Distribution is pulled by a tail.",
+                "business_insight": "days_since_last_purchase is relatively well-behaved: symmetric and no extreme tails. Mean (215.56) is a trustworthy summary."
+            },
+            "bimodal_detection": null,
+            "plot": "distribution_days_since_last_purchase.png"
+        },
+        "support_tickets": {
+            "statistics": {
+                "count": 5000,
+                "null_count": 0,
+                "mean": 2.0388,
+                "median": 0.0,
+                "mode": 0.0,
+                "std": 6.6873,
+                "min": 0.0,
+                "max": 49.0,
+                "q25": 0.0,
+                "q50": 0.0,
+                "q75": 1.0,
+                "skewness": 4.8142,
+                "kurtosis": 23.8394
+            },
+            "interpretation": {
+                "column": "support_tickets",
+                "shape": "highly skewed",
+                "skew_direction": "right",
+                "recommended_central_tendency": "median strongly preferred (mean is misleading)",
+                "tail_behavior": "heavy tails \u2014 expect extreme outliers",
+                "mean_vs_median": "Mean (2.04) differs 100.0% from median (0.00). Distribution is pulled by a tail.",
+                "business_insight": "Most support_tickets values are low, but a few extremely high values pull the average up. Median (0.00) better represents the typical value than mean (2.04). Expect extreme outliers in support_tickets. Consider capping or flagging values beyond the 99th percentile for robustness."
+            },
+            "bimodal_detection": {
+                "bimodal": true,
+                "interpretation": "support_tickets shows a bimodal distribution with two distinct clusters. This suggests two different underlying populations or behaviors (e.g. active vs churned customers, small vs enterprise accounts). Consider segmenting the analysis."
+            },
+            "plot": "distribution_support_tickets.png"
+        }
+    },
+    "segment_comparison": {
+        "segment_column": "segment",
+        "comparisons": {
+            "customer_id": {
+                "segment_stats": {
+                    "B2C": {
+                        "mean": 2508.6538,
+                        "median": 2528.0,
+                        "count": 3033
+                    },
+                    "B2B": {
+                        "mean": 2522.1143,
+                        "median": 2525.0,
+                        "count": 1479
+                    },
+                    "Enterprise": {
+                        "mean": 2384.3156,
+                        "median": 2324.5,
+                        "count": 488
+                    }
+                },
+                "plot": "segment_comparison_customer_id_by_segment.png"
+            },
+            "revenue": {
+                "segment_stats": {
+                    "B2C": {
+                        "mean": 2840.3839,
+                        "median": 177.68,
+                        "count": 3033
+                    },
+                    "B2B": {
+                        "mean": 3166.0349,
+                        "median": 173.06,
+                        "count": 1479
+                    },
+                    "Enterprise": {
+                        "mean": 2212.5524,
+                        "median": 170.07,
+                        "count": 488
+                    }
+                },
+                "plot": "segment_comparison_revenue_by_segment.png"
+            },
+            "profit_margin": {
+                "segment_stats": {
+                    "B2C": {
+                        "mean": 24.8669,
+                        "median": 25.05,
+                        "count": 3033
+                    },
+                    "B2B": {
+                        "mean": 24.9186,
+                        "median": 24.93,
+                        "count": 1479
+                    },
+                    "Enterprise": {
+                        "mean": 24.6607,
+                        "median": 24.725,
+                        "count": 488
+                    }
+                },
+                "plot": "segment_comparison_profit_margin_by_segment.png"
+            },
+            "days_since_last_purchase": {
+                "segment_stats": {
+                    "B2C": {
+                        "mean": 215.7234,
+                        "median": 26.0,
+                        "count": 3033
+                    },
+                    "B2B": {
+                        "mean": 214.1298,
+                        "median": 26.0,
+                        "count": 1479
+                    },
+                    "Enterprise": {
+                        "mean": 218.8873,
+                        "median": 26.0,
+                        "count": 488
+                    }
+                },
+                "plot": "segment_comparison_days_since_last_purchase_by_segment.png"
+            },
+            "support_tickets": {
+                "segment_stats": {
+                    "B2C": {
+                        "mean": 2.0356,
+                        "median": 0.0,
+                        "count": 3033
+                    },
+                    "B2B": {
+                        "mean": 1.9141,
+                        "median": 0.0,
+                        "count": 1479
+                    },
+                    "Enterprise": {
+                        "mean": 2.4365,
+                        "median": 0.0,
+                        "count": 488
+                    }
+                },
+                "plot": "segment_comparison_support_tickets_by_segment.png"
+            }
+        }
+    }
+}
