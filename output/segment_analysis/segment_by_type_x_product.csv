@@ -1,0 +1,10 @@
+customer_type,product,customer_count,total_revenue,churn_rate
+Enterprise,Analytics,58,744001.0,0.0172
+Enterprise,Platform,74,863951.68,0.0
+Enterprise,Support,18,238336.72,0.0
+SMB,Analytics,456,677607.72,0.1184
+SMB,Platform,559,832275.85,0.1467
+SMB,Support,185,278378.35,0.1297
+Startup,Analytics,645,265066.65,0.0853
+Startup,Platform,770,308348.16,0.0753
+Startup,Support,235,95082.7,0.0851

@@ -1,0 +1,44 @@
+{
+    "segment_insights": [
+        {
+            "segment": "Enterprise",
+            "status": "HEALTHY \u2014 HIGH VALUE",
+            "churn_rate_pct": 0.67,
+            "revenue_share_pct": 42.91,
+            "customer_share_pct": 5.0,
+            "ltv_per_customer": 12308.6,
+            "churn_rank": 1,
+            "revenue_rank": 1,
+            "action": "Protect this segment. Prioritise dedicated account management, proactive QBRs, and executive sponsorship. Upsell opportunities exist given high LTV ($12,309/customer)."
+        },
+        {
+            "segment": "Startup",
+            "status": "AT RISK \u2014 EARLY INTERVENTION",
+            "churn_rate_pct": 8.06,
+            "revenue_share_pct": 15.54,
+            "customer_share_pct": 55.0,
+            "ltv_per_customer": 405.15,
+            "churn_rank": 2,
+            "revenue_rank": 3,
+            "action": "Launch early-warning churn signals and proactive outreach. Increase product adoption initiatives. Segment churn of 8.1% is above the healthy threshold of 5%."
+        },
+        {
+            "segment": "SMB",
+            "status": "CRITICAL \u2014 URGENT INTERVENTION",
+            "churn_rate_pct": 13.33,
+            "revenue_share_pct": 41.56,
+            "customer_share_pct": 40.0,
+            "ltv_per_customer": 1490.22,
+            "churn_rank": 3,
+            "revenue_rank": 2,
+            "action": "Immediate churn prevention campaign required. Investigate root causes: onboarding gaps, product-fit issues, support quality. Consider a dedicated success programme for this segment. 13.3% churn on 1,200.0 customers = 159 lost customers per cycle."
+        }
+    ],
+    "plots": [
+        "segment_revenue_vs_customer_share.png",
+        "segment_churn_rate.png",
+        "segment_churn_vs_ltv_bubble.png",
+        "pivot_heatmap_revenue.png",
+        "pivot_heatmap_churn.png"
+    ]
+}

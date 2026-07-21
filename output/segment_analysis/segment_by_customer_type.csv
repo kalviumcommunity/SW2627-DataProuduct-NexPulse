@@ -1,0 +1,4 @@
+customer_type,customer_count,total_revenue,avg_revenue,median_revenue,churn_count,churn_rate,avg_tickets,avg_discount_pct,avg_days,revenue_share_pct,customer_share_pct
+Enterprise,150,1846289.4,12308.596,12400.01,1,0.0067,2.1467,20.2593,722.14,42.91,5.0
+SMB,1200,1788261.92,1490.2183,1484.815,160,0.1333,2.4283,20.1586,729.6242,41.56,40.0
+Startup,1650,668497.51,405.15,404.52,133,0.0806,2.3164,20.5456,722.2855,15.54,55.0

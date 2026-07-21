@@ -1,0 +1,4 @@
+region,customer_count,total_revenue,avg_revenue,churn_rate
+APAC,607,885120.45,1458.1886,0.0988
+EMEA,906,1289491.65,1423.28,0.0927
+NA,1487,2128436.73,1431.363,0.1009
