@@ -1,0 +1,752 @@
+{
+    "pearson_pairs": [
+        {
+            "var1": "profit_margin",
+            "var2": "revenue",
+            "method": "pearson",
+            "r": 0.9962,
+            "abs_r": 0.9962,
+            "strength": "very strong",
+            "direction": "positive",
+            "causation_warning": "CORRELATION \u2260 CAUSATION. Three alternative explanations:\n  1. profit_margin causes revenue\n  2. revenue causes profit_margin\n  3. A confounding variable causes both profit_margin and revenue\nAlways reason about mechanism before concluding causation."
+        },
+        {
+            "var1": "churn_score",
+            "var2": "days_since_last_purchase",
+            "method": "pearson",
+            "r": 0.9065,
+            "abs_r": 0.9065,
+            "strength": "very strong",
+            "direction": "positive",
+            "causation_warning": "CORRELATION \u2260 CAUSATION. Three alternative explanations:\n  1. churn_score causes days_since_last_purchase\n  2. days_since_last_purchase causes churn_score\n  3. A confounding variable causes both churn_score and days_since_last_purchase\nAlways reason about mechanism before concluding causation."
+        },
+        {
+            "var1": "revenue",
+            "var2": "total_transactions",
+            "method": "pearson",
+            "r": 0.8098,
+            "abs_r": 0.8098,
+            "strength": "strong",
+            "direction": "positive",
+            "causation_warning": "CORRELATION \u2260 CAUSATION. Three alternative explanations:\n  1. revenue causes total_transactions\n  2. total_transactions causes revenue\n  3. A confounding variable causes both revenue and total_transactions\nAlways reason about mechanism before concluding causation."
+        },
+        {
+            "var1": "profit_margin",
+            "var2": "total_transactions",
+            "method": "pearson",
+            "r": 0.8062,
+            "abs_r": 0.8062,
+            "strength": "strong",
+            "direction": "positive",
+            "causation_warning": "CORRELATION \u2260 CAUSATION. Three alternative explanations:\n  1. profit_margin causes total_transactions\n  2. total_transactions causes profit_margin\n  3. A confounding variable causes both profit_margin and total_transactions\nAlways reason about mechanism before concluding causation."
+        },
+        {
+            "var1": "transactions_per_month",
+            "var2": "days_since_last_purchase",
+            "method": "pearson",
+            "r": -0.6934,
+            "abs_r": 0.6934,
+            "strength": "moderate",
+            "direction": "negative",
+            "causation_warning": null
+        },
+        {
+            "var1": "churn_score",
+            "var2": "transactions_per_month",
+            "method": "pearson",
+            "r": -0.6194,
+            "abs_r": 0.6194,
+            "strength": "moderate",
+            "direction": "negative",
+            "causation_warning": null
+        },
+        {
+            "var1": "churn_score",
+            "var2": "support_tickets",
+            "method": "pearson",
+            "r": 0.3363,
+            "abs_r": 0.3363,
+            "strength": "weak",
+            "direction": "positive",
+            "causation_warning": null
+        },
+        {
+            "var1": "support_tickets",
+            "var2": "revenue",
+            "method": "pearson",
+            "r": -0.0515,
+            "abs_r": 0.0515,
+            "strength": "weak",
+            "direction": "negative",
+            "causation_warning": null
+        },
+        {
+            "var1": "support_tickets",
+            "var2": "profit_margin",
+            "method": "pearson",
+            "r": -0.0507,
+            "abs_r": 0.0507,
+            "strength": "weak",
+            "direction": "negative",
+            "causation_warning": null
+        },
+        {
+            "var1": "discount_pct",
+            "var2": "support_tickets",
+            "method": "pearson",
+            "r": 0.0334,
+            "abs_r": 0.0334,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "support_tickets",
+            "var2": "total_transactions",
+            "method": "pearson",
+            "r": -0.0326,
+            "abs_r": 0.0326,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "days_since_last_purchase",
+            "var2": "total_transactions",
+            "method": "pearson",
+            "r": 0.0269,
+            "abs_r": 0.0269,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "support_tickets",
+            "var2": "customer_age",
+            "method": "pearson",
+            "r": -0.0226,
+            "abs_r": 0.0226,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "discount_pct",
+            "var2": "transactions_per_month",
+            "method": "pearson",
+            "r": -0.0216,
+            "abs_r": 0.0216,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "discount_pct",
+            "var2": "total_transactions",
+            "method": "pearson",
+            "r": -0.0213,
+            "abs_r": 0.0213,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "days_since_last_purchase",
+            "var2": "revenue",
+            "method": "pearson",
+            "r": 0.0211,
+            "abs_r": 0.0211,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "discount_pct",
+            "var2": "churn_score",
+            "method": "pearson",
+            "r": 0.0211,
+            "abs_r": 0.0211,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "days_since_last_purchase",
+            "var2": "profit_margin",
+            "method": "pearson",
+            "r": 0.0197,
+            "abs_r": 0.0197,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "days_since_last_purchase",
+            "var2": "customer_age",
+            "method": "pearson",
+            "r": 0.0169,
+            "abs_r": 0.0169,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "discount_pct",
+            "var2": "profit_margin",
+            "method": "pearson",
+            "r": -0.0154,
+            "abs_r": 0.0154,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "churn_score",
+            "var2": "total_transactions",
+            "method": "pearson",
+            "r": 0.0151,
+            "abs_r": 0.0151,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "support_tickets",
+            "var2": "transactions_per_month",
+            "method": "pearson",
+            "r": 0.0147,
+            "abs_r": 0.0147,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "churn_score",
+            "var2": "customer_age",
+            "method": "pearson",
+            "r": 0.0128,
+            "abs_r": 0.0128,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "discount_pct",
+            "var2": "revenue",
+            "method": "pearson",
+            "r": -0.0123,
+            "abs_r": 0.0123,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "transactions_per_month",
+            "var2": "profit_margin",
+            "method": "pearson",
+            "r": 0.0112,
+            "abs_r": 0.0112,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "transactions_per_month",
+            "var2": "revenue",
+            "method": "pearson",
+            "r": 0.0105,
+            "abs_r": 0.0105,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "discount_pct",
+            "var2": "days_since_last_purchase",
+            "method": "pearson",
+            "r": 0.0066,
+            "abs_r": 0.0066,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "revenue",
+            "var2": "customer_age",
+            "method": "pearson",
+            "r": -0.0065,
+            "abs_r": 0.0065,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "profit_margin",
+            "var2": "customer_age",
+            "method": "pearson",
+            "r": -0.0064,
+            "abs_r": 0.0064,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "churn_score",
+            "var2": "revenue",
+            "method": "pearson",
+            "r": 0.0047,
+            "abs_r": 0.0047,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "discount_pct",
+            "var2": "customer_age",
+            "method": "pearson",
+            "r": -0.0045,
+            "abs_r": 0.0045,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "support_tickets",
+            "var2": "days_since_last_purchase",
+            "method": "pearson",
+            "r": 0.0041,
+            "abs_r": 0.0041,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "transactions_per_month",
+            "var2": "customer_age",
+            "method": "pearson",
+            "r": 0.0037,
+            "abs_r": 0.0037,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "transactions_per_month",
+            "var2": "total_transactions",
+            "method": "pearson",
+            "r": 0.0027,
+            "abs_r": 0.0027,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "churn_score",
+            "var2": "profit_margin",
+            "method": "pearson",
+            "r": 0.0026,
+            "abs_r": 0.0026,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "total_transactions",
+            "var2": "customer_age",
+            "method": "pearson",
+            "r": 0.0021,
+            "abs_r": 0.0021,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        }
+    ],
+    "spearman_pairs": [
+        {
+            "var1": "profit_margin",
+            "var2": "revenue",
+            "method": "spearman",
+            "r": 0.9946,
+            "abs_r": 0.9946,
+            "strength": "very strong",
+            "direction": "positive",
+            "causation_warning": "CORRELATION \u2260 CAUSATION. Three alternative explanations:\n  1. profit_margin causes revenue\n  2. revenue causes profit_margin\n  3. A confounding variable causes both profit_margin and revenue\nAlways reason about mechanism before concluding causation."
+        },
+        {
+            "var1": "churn_score",
+            "var2": "days_since_last_purchase",
+            "method": "spearman",
+            "r": 0.9155,
+            "abs_r": 0.9155,
+            "strength": "very strong",
+            "direction": "positive",
+            "causation_warning": "CORRELATION \u2260 CAUSATION. Three alternative explanations:\n  1. churn_score causes days_since_last_purchase\n  2. days_since_last_purchase causes churn_score\n  3. A confounding variable causes both churn_score and days_since_last_purchase\nAlways reason about mechanism before concluding causation."
+        },
+        {
+            "var1": "revenue",
+            "var2": "total_transactions",
+            "method": "spearman",
+            "r": 0.8437,
+            "abs_r": 0.8437,
+            "strength": "strong",
+            "direction": "positive",
+            "causation_warning": "CORRELATION \u2260 CAUSATION. Three alternative explanations:\n  1. revenue causes total_transactions\n  2. total_transactions causes revenue\n  3. A confounding variable causes both revenue and total_transactions\nAlways reason about mechanism before concluding causation."
+        },
+        {
+            "var1": "profit_margin",
+            "var2": "total_transactions",
+            "method": "spearman",
+            "r": 0.8385,
+            "abs_r": 0.8385,
+            "strength": "strong",
+            "direction": "positive",
+            "causation_warning": "CORRELATION \u2260 CAUSATION. Three alternative explanations:\n  1. profit_margin causes total_transactions\n  2. total_transactions causes profit_margin\n  3. A confounding variable causes both profit_margin and total_transactions\nAlways reason about mechanism before concluding causation."
+        },
+        {
+            "var1": "transactions_per_month",
+            "var2": "days_since_last_purchase",
+            "method": "spearman",
+            "r": -0.7765,
+            "abs_r": 0.7765,
+            "strength": "strong",
+            "direction": "negative",
+            "causation_warning": "CORRELATION \u2260 CAUSATION. Three alternative explanations:\n  1. transactions_per_month causes days_since_last_purchase\n  2. days_since_last_purchase causes transactions_per_month\n  3. A confounding variable causes both transactions_per_month and days_since_last_purchase\nAlways reason about mechanism before concluding causation."
+        },
+        {
+            "var1": "churn_score",
+            "var2": "transactions_per_month",
+            "method": "spearman",
+            "r": -0.7015,
+            "abs_r": 0.7015,
+            "strength": "strong",
+            "direction": "negative",
+            "causation_warning": "CORRELATION \u2260 CAUSATION. Three alternative explanations:\n  1. churn_score causes transactions_per_month\n  2. transactions_per_month causes churn_score\n  3. A confounding variable causes both churn_score and transactions_per_month\nAlways reason about mechanism before concluding causation."
+        },
+        {
+            "var1": "churn_score",
+            "var2": "support_tickets",
+            "method": "spearman",
+            "r": 0.2753,
+            "abs_r": 0.2753,
+            "strength": "weak",
+            "direction": "positive",
+            "causation_warning": null
+        },
+        {
+            "var1": "support_tickets",
+            "var2": "revenue",
+            "method": "spearman",
+            "r": -0.0465,
+            "abs_r": 0.0465,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "support_tickets",
+            "var2": "customer_age",
+            "method": "spearman",
+            "r": -0.0461,
+            "abs_r": 0.0461,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "support_tickets",
+            "var2": "profit_margin",
+            "method": "spearman",
+            "r": -0.0457,
+            "abs_r": 0.0457,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "discount_pct",
+            "var2": "support_tickets",
+            "method": "spearman",
+            "r": 0.0373,
+            "abs_r": 0.0373,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "days_since_last_purchase",
+            "var2": "total_transactions",
+            "method": "spearman",
+            "r": 0.0265,
+            "abs_r": 0.0265,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "support_tickets",
+            "var2": "total_transactions",
+            "method": "spearman",
+            "r": -0.0244,
+            "abs_r": 0.0244,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "days_since_last_purchase",
+            "var2": "revenue",
+            "method": "spearman",
+            "r": 0.0232,
+            "abs_r": 0.0232,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "days_since_last_purchase",
+            "var2": "profit_margin",
+            "method": "spearman",
+            "r": 0.0222,
+            "abs_r": 0.0222,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "discount_pct",
+            "var2": "total_transactions",
+            "method": "spearman",
+            "r": -0.0209,
+            "abs_r": 0.0209,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "discount_pct",
+            "var2": "churn_score",
+            "method": "spearman",
+            "r": 0.0173,
+            "abs_r": 0.0173,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "days_since_last_purchase",
+            "var2": "customer_age",
+            "method": "spearman",
+            "r": 0.0172,
+            "abs_r": 0.0172,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "churn_score",
+            "var2": "total_transactions",
+            "method": "spearman",
+            "r": 0.0139,
+            "abs_r": 0.0139,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "discount_pct",
+            "var2": "profit_margin",
+            "method": "spearman",
+            "r": -0.0139,
+            "abs_r": 0.0139,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "churn_score",
+            "var2": "customer_age",
+            "method": "spearman",
+            "r": 0.0125,
+            "abs_r": 0.0125,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "discount_pct",
+            "var2": "transactions_per_month",
+            "method": "spearman",
+            "r": -0.0121,
+            "abs_r": 0.0121,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "discount_pct",
+            "var2": "revenue",
+            "method": "spearman",
+            "r": -0.0105,
+            "abs_r": 0.0105,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "revenue",
+            "var2": "customer_age",
+            "method": "spearman",
+            "r": -0.0096,
+            "abs_r": 0.0096,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "profit_margin",
+            "var2": "customer_age",
+            "method": "spearman",
+            "r": -0.0096,
+            "abs_r": 0.0096,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "support_tickets",
+            "var2": "transactions_per_month",
+            "method": "spearman",
+            "r": 0.0096,
+            "abs_r": 0.0096,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "transactions_per_month",
+            "var2": "total_transactions",
+            "method": "spearman",
+            "r": -0.0078,
+            "abs_r": 0.0078,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "churn_score",
+            "var2": "revenue",
+            "method": "spearman",
+            "r": 0.006,
+            "abs_r": 0.006,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "discount_pct",
+            "var2": "customer_age",
+            "method": "spearman",
+            "r": -0.0055,
+            "abs_r": 0.0055,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "discount_pct",
+            "var2": "days_since_last_purchase",
+            "method": "spearman",
+            "r": 0.0055,
+            "abs_r": 0.0055,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "churn_score",
+            "var2": "profit_margin",
+            "method": "spearman",
+            "r": 0.0042,
+            "abs_r": 0.0042,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "transactions_per_month",
+            "var2": "revenue",
+            "method": "spearman",
+            "r": -0.0029,
+            "abs_r": 0.0029,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "total_transactions",
+            "var2": "customer_age",
+            "method": "spearman",
+            "r": 0.0028,
+            "abs_r": 0.0028,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "transactions_per_month",
+            "var2": "customer_age",
+            "method": "spearman",
+            "r": -0.0012,
+            "abs_r": 0.0012,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "support_tickets",
+            "var2": "days_since_last_purchase",
+            "method": "spearman",
+            "r": -0.0012,
+            "abs_r": 0.0012,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        },
+        {
+            "var1": "transactions_per_month",
+            "var2": "profit_margin",
+            "method": "spearman",
+            "r": -0.001,
+            "abs_r": 0.001,
+            "strength": "weak",
+            "direction": "none",
+            "causation_warning": null
+        }
+    ],
+    "redundant_features": [
+        {
+            "var1": "profit_margin",
+            "var2": "revenue",
+            "r": 0.9962,
+            "recommendation": "|r|=1.00 (pearson). Consider dropping 'revenue' \u2014 it carries near-identical information to 'profit_margin'. Keeping both inflates model complexity without adding signal."
+        },
+        {
+            "var1": "churn_score",
+            "var2": "days_since_last_purchase",
+            "r": 0.9065,
+            "recommendation": "|r|=0.91 (pearson). Consider dropping 'days_since_last_purchase' \u2014 it carries near-identical information to 'churn_score'. Keeping both inflates model complexity without adding signal."
+        }
+    ],
+    "plots": {
+        "heatmaps": [
+            "correlation_heatmap_pearson.png",
+            "correlation_heatmap_spearman.png"
+        ],
+        "scatter_plots": [
+            "scatter_profit_margin_vs_revenue.png",
+            "scatter_churn_score_vs_days_since_last_purchase.png",
+            "scatter_revenue_vs_total_transactions.png",
+            "scatter_profit_margin_vs_total_transactions.png"
+        ]
+    }
+}
