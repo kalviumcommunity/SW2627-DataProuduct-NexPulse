@@ -1,0 +1,73 @@
+[
+    {
+        "operation": "min_max_normalisation",
+        "formula": "(x - min) / (max - min)",
+        "output_range": "[0.0, 1.0]",
+        "timings": {
+            "loop_s": 0.025326,
+            "apply_s": 0.022976,
+            "numpy_s": 0.000552
+        },
+        "speedup_numpy_vs_loop": "46x faster",
+        "speedup_numpy_vs_apply": "42x faster",
+        "correctness": {
+            "apply_matches_loop": true,
+            "numpy_matches_loop": true
+        }
+    },
+    {
+        "operation": "zscore_normalisation",
+        "formula": "(x - mean) / std",
+        "output_range": "unbounded; typically -3 \u2026 +3",
+        "timings": {
+            "loop_s": 0.028695,
+            "apply_s": 0.019533,
+            "numpy_s": 0.000122
+        },
+        "speedup_numpy_vs_loop": "235x faster",
+        "speedup_numpy_vs_apply": "160x faster"
+    },
+    {
+        "operation": "log1p_transformation",
+        "formula": "log1p(clip(x, 0, \u221e))",
+        "output_range": "[0, \u221e) \u2014 compresses right-skewed distributions",
+        "timings": {
+            "loop_s": 0.155004,
+            "apply_s": 0.186312,
+            "numpy_s": 0.000899
+        },
+        "speedup_numpy_vs_loop": "172x faster",
+        "speedup_numpy_vs_apply": "207x faster"
+    },
+    {
+        "operation": "percentile_rank_0_100",
+        "formula": "rank(x) / (n - 1) \u00d7 100  via argsort",
+        "output_range": "[0.0, 100.0]",
+        "timings": {
+            "loop_s_estimated": 1636.274,
+            "apply_s": 0.025512,
+            "numpy_s": 0.013879,
+            "note": "Loop is O(n\u00b2); estimated from 5000-row sample extrapolated to 100000 rows."
+        },
+        "speedup_numpy_vs_loop": "117893x faster",
+        "speedup_numpy_vs_apply": "2x faster"
+    },
+    {
+        "operation": "weighted_composite_health_score",
+        "formula": "+0.40\u00d7norm(revenue) + +0.25\u00d7norm(days_active) + +0.20\u00d7norm(satisfaction) + -0.15\u00d7norm(support_tickets)",
+        "output_range": "[-0.15, 0.85]  (bounded by weight sum)",
+        "weights": {
+            "revenue": 0.4,
+            "days_active": 0.25,
+            "satisfaction": 0.2,
+            "support_tickets": -0.15
+        },
+        "timings": {
+            "loop_s": 0.178708,
+            "apply_s": 7.159002,
+            "numpy_s": 0.011055
+        },
+        "speedup_numpy_vs_loop": "16x faster",
+        "speedup_numpy_vs_apply": "648x faster"
+    }
+]
