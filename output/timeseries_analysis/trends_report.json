@@ -1,0 +1,32 @@
+{
+    "weekly": {
+        "direction": "downtrend",
+        "acceleration": "decelerating",
+        "interpretation": "Weekly revenue is declining. Immediate action required. Diagnose root cause: churn spike? Sales pipeline issue? Product-market fit erosion?",
+        "last_3_periods": [
+            289252.35,
+            291724.99,
+            40516.75
+        ]
+    },
+    "monthly": {
+        "direction": "flat",
+        "acceleration": "decelerating",
+        "interpretation": "Monthly revenue is stable with no clear trend. Monitor closely; flat can precede either growth or decline.",
+        "last_3_periods": [
+            1264443.22,
+            1265211.56,
+            1252318.98
+        ]
+    },
+    "quarterly": {
+        "direction": "uptrend",
+        "acceleration": "decelerating",
+        "interpretation": "Quarterly revenue is still growing but momentum is slowing. Investigate: market saturation? Competitive pressure? Need new growth levers.",
+        "last_3_periods": [
+            3598860.64,
+            3742555.32,
+            3781973.76
+        ]
+    }
+}
