@@ -1,0 +1,10 @@
+customer_type,region,customer_count,total_revenue,churn_rate
+Enterprise,APAC,31,383512.78,0.0
+Enterprise,EMEA,46,565407.45,0.0
+Enterprise,NA,73,897369.17,0.0137
+SMB,APAC,236,364534.23,0.1483
+SMB,EMEA,362,522593.96,0.1188
+SMB,NA,602,901133.73,0.1362
+Startup,APAC,340,137073.44,0.0735
+Startup,EMEA,498,201490.24,0.0823
+Startup,NA,812,329933.83,0.0825
